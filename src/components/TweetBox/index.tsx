@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ProfileBox, TweetContainer, TweetWrapper, FooterBox, MainContent } from './styles';
 
 import chatIcon from '../../assets/svg/chatbubble-outline.svg'
@@ -10,19 +10,25 @@ interface Props {
   name:  string;
   tag: string;
   date: string;
-  tweeted: string
+  tweeted?: string;
+  imageTweeted?: string;
+  profileImage: string;
+  videoTweeted?: string;
 }
 
-const TweetBox: React.FC<Props> = ({ name, tag, date, tweeted }) => {
+const TweetBox: React.FC<Props> = ({ videoTweeted, imageTweeted, profileImage, name, tag, date, tweeted }) => {
   return (
     <TweetWrapper>
       <TweetContainer>
         <ProfileBox>
-          <img src="https://pbs.twimg.com/profile_images/1295775384475246592/_uFAV8Ks_400x400.jpg" alt=""/>
+          <img src={profileImage} alt=""/>
         </ProfileBox>
         <MainContent>
           <header><h3>{ name }<span>{ tag }</span><span>-</span><span>{ date }</span></h3></header>
-          <p>{ tweeted }</p>
+          <p>{ tweeted }</p><img src={ imageTweeted } alt=""/>
+          { videoTweeted === '' ? <video width="320" height="240" controls>
+            <source src={videoTweeted} type="video/mp4" />
+          </video> : <></>}
         </MainContent>
       </TweetContainer>
       <FooterBox>
