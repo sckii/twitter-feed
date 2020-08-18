@@ -5,7 +5,12 @@ import TweetBox from '../TweetBox';
 function FeedMain() {
   return (
     <BoxContainer>
-      <TweetBox />
+      <TweetBox 
+        name="samuel"
+        tag="samuel"
+        date="2 min"
+        tweeted="alsdkjfdsfgsdfgsdfgsdçlaskdjfçlaksdjfçlaksdjf"
+      />
     </BoxContainer>
   )
 }
