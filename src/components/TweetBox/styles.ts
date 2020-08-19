@@ -5,8 +5,6 @@ export const TweetWrapper = styled.div `
   display: flex;
   flex-direction: column;
   padding: 1rem 0.5rem;
-  
-  
 `
 
 export const ProfileBox = styled.div `
@@ -47,14 +45,84 @@ export const FooterBox = styled.footer `
     align-items: center;
     justify-content: space-around;
     img {
+      border-radius: 2rem;
       width: 1.7rem;
     }
   }
 `
 
 export const MainContent = styled.main `
+  padding-right: 1.1rem;
+  margin-bottom: 1rem;
   p {
     margin-bottom: 2rem;
     padding-top: .8rem;
   }
+  img {
+    width: 100%;
+    border-radius: 2rem;
+    border: 1px solid ${props => props.theme.colors.border}
+  }
+  embed {
+    width: 30rem;
+    max-width: 800px;
+  }
+  video {
+    width: 100%;
+    border-radius: 2rem;
+    outline: none;
+    border: 1px solid ${props => props.theme.colors.border}
+  }
 `
+export const OpenVideo = styled.div `
+
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: ${props => props.theme.colors.overlay};
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  span {
+    width: 98%;
+    position: relative;
+    img {
+      border-radius: 4rem;
+      width: 3rem;
+
+    }
+  }
+  img:hover {
+    opacity: 0.8;
+    background: ${props => props.theme.colors.primary}; 
+  }
+  footer {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    max-width: 1080px;
+    
+    img {
+      border-radius: 2rem;
+      width: 2rem;
+    }
+  }
+  img {
+    max-width: 1080px;
+
+    border: 0;
+    opacity: 1;
+    border-radius: 0;
+  }
+`
+
+export const Video = styled.video `
+
+`
+
