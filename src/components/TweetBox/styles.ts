@@ -5,6 +5,8 @@ export const TweetWrapper = styled.div `
   display: flex;
   flex-direction: column;
   padding: 1rem 0.5rem;
+  border-left: 1px solid ${props => props.theme.colors.border};
+  border-right: 1px solid ${props => props.theme.colors.border};
 `
 
 export const ProfileBox = styled.div `
@@ -81,12 +83,19 @@ export const OpenVideo = styled.div `
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   background: ${props => props.theme.colors.overlay};
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  video {
+    border: 0;
+    width: 100%;
+    border-radius: 0;
+    max-width: 1080px;
+
+  }
   span {
     width: 98%;
     position: relative;
@@ -95,10 +104,10 @@ export const OpenVideo = styled.div `
       width: 3rem;
 
     }
-  }
-  img:hover {
-    opacity: 0.8;
-    background: ${props => props.theme.colors.primary}; 
+    img:hover {
+      opacity: 0.8;
+      background: ${props => props.theme.colors.primary}; 
+    }
   }
   footer {
     margin-top: 1rem;
@@ -115,7 +124,59 @@ export const OpenVideo = styled.div `
   }
   img {
     max-width: 1080px;
+    border: 0;
+    opacity: 1;
+    border-radius: 0;
+  }
+`
+export const OpenImage = styled.div `
 
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background: ${props => props.theme.colors.overlay};
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  video {
+    border: 0;
+    width: 100%;
+    border-radius: 0;
+    max-width: 1080px;
+
+  }
+  span {
+    width: 98%;
+    position: relative;
+    img {
+      border-radius: 4rem;
+      width: 3rem;
+
+    }
+    img:hover {
+      opacity: 0.8;
+      background: ${props => props.theme.colors.primary}; 
+    }
+  }
+  footer {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    max-width: 1080px;
+    
+    img {
+      border-radius: 2rem;
+      width: 2rem;
+    }
+  }
+  img {
+    max-width: 1080px;
     border: 0;
     opacity: 1;
     border-radius: 0;

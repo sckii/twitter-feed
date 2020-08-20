@@ -6,7 +6,6 @@ import FeedMain from '../../components/FeedMain';
 function Home() {
   return (
     <PageDefault>
-      <FeedHeader />
       <FeedMain />
     </PageDefault>
   )

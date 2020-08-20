@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProfileBox, TweetContainer, TweetWrapper, FooterBox, MainContent, Video, OpenVideo } from './styles';
+import { ProfileBox, TweetContainer, TweetWrapper, FooterBox, MainContent, Video, OpenVideo, OpenImage } from './styles';
 
 import chatIcon from '../../assets/svg/chatbubble-outline.svg'
 import heartIcon from '../../assets/svg/heart-outline.svg'
@@ -18,9 +18,14 @@ interface Props {
 
 const TweetBox: React.FC<Props> = ({ videoTweeted, imageTweeted, profileImage, name, tag, date, tweeted }) => {
   const [imageOpen, setImageOpen] = useState(false)
+  const [videoOpen, setVideoOpen] = useState(false)
+
 
   function handleImageOpen() {
     setImageOpen(!imageOpen)
+  }
+  function handleVideoOpen() {
+    setVideoOpen(!videoOpen)
   }
 
   return (
@@ -34,21 +39,28 @@ const TweetBox: React.FC<Props> = ({ videoTweeted, imageTweeted, profileImage, n
           { tweeted !== '' ? <p>{ tweeted }</p> : <></>}
           { imageTweeted !== '' ? <img onClick={handleImageOpen} src={ imageTweeted } alt="" /> : <></>}
           { imageOpen === true ? 
-            <OpenVideo onClick={handleImageOpen}>  
+            <OpenImage onClick={handleImageOpen}>  
               <span><img src={closeIcon} alt=""/></span>
               <img onClick={handleImageOpen} src={ imageTweeted } alt="" /> 
               <footer>
                 <img src={chatIcon} alt=""/><img src={heartIcon} alt=""/><img src={repeatIcon} alt=""/><img src={shareIcon} alt=""/>
               </footer>
-            </OpenVideo>    
+            </OpenImage>    
             : <> </>}
           { videoTweeted !== '' ? 
-            
-              <video src={videoTweeted} controls>
+              <video onClick={handleVideoOpen} src={videoTweeted} controls>
               </video>
-           
-            
           : <></>}
+          { videoOpen === true ? 
+            <OpenVideo onClick={handleVideoOpen}>  
+              <span><img src={closeIcon} alt=""/></span>
+              <video onClick={handleVideoOpen} src={videoTweeted} controls>
+              </video>
+              <footer>
+                <img src={chatIcon} alt=""/><img src={heartIcon} alt=""/><img src={repeatIcon} alt=""/><img src={shareIcon} alt=""/>
+              </footer>
+            </OpenVideo>    
+            : <> </>}
         </MainContent>
       </TweetContainer>
       <FooterBox>

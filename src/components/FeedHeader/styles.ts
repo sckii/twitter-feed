@@ -4,6 +4,8 @@ export const HeaderContainer = styled.div `
   width: 100%;
   height: 17.2rem;
   border-bottom: 1rem solid ${props => props.theme.colors.border};
+  border-left: 1px solid ${props => props.theme.colors.border};
+  border-right: 1px solid ${props => props.theme.colors.border};
 `
 
 export const Header = styled.div `
